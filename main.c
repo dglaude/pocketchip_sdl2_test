@@ -4,6 +4,10 @@
 int
 main()
 {
-    SDL_Init(SDL_INIT_VIDEO);
-    return 0;
+ if (SDL_Init(SDL_INIT_VIDEO) < 0) {
+            fprintf(stderr, "Couldn't init SDL2: %s\n", SDL_GetError());
+            exit(1);
+    }
+    else
+            printf("SDL2 successfully started!\n");  
 }
